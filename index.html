@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Breda Barbearia Oficial — Barba, Cabelo e Bigode</title>
+  <meta name="description" content="Breda Barbearia Oficial. Agende seu corte, barba ou barboterapia pelo WhatsApp. Seg a Sáb das 08h às 19h, dom e feriados das 08h às 12h.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Barra de anúncio -->
+  <div class="anuncio" role="note">
+    <span>Seg a Sáb · 08h–19h</span>
+    <span aria-hidden="true">·</span>
+    <span>Domingo e feriados · 08h–12h</span>
+    <span aria-hidden="true">·</span>
+    <span><a href="https://wa.me/5565999395652" target="_blank" rel="noopener">(65) 99939-5652</a></span>
+  </div>
+
+  <!-- Header -->
+  <header class="topo">
+    <div class="topo-inner">
+      <a class="logo" href="#inicio" aria-label="Breda Barbearia Oficial — início">
+        <span class="logo-poste" aria-hidden="true"></span>
+        <span class="logo-texto">BREDA</span>
+      </a>
+      <nav class="nav-desktop" aria-label="Navegação principal">
+        <a href="#servicos">Serviços</a>
+        <a href="#pomadas">Pomadas</a>
+        <a href="#contato">Contato</a>
+      </nav>
+      <a class="btn btn-primario topo-cta" href="#agendamento">Agendar horário</a>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menuMobile">
+        <span class="menu-linha"></span><span class="menu-linha"></span><span class="menu-linha"></span>
+        <span class="sr-only">Abrir menu</span>
+      </button>
+    </div>
+    <div class="menu-mobile" id="menuMobile" hidden>
+      <a href="#servicos">Serviços</a>
+      <a href="#pomadas">Pomadas</a>
+      <a href="#contato">Contato</a>
+      <a class="btn btn-primario" href="#agendamento">Agendar horário</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero" id="inicio">
+      <span class="hero-marca" aria-hidden="true">BREDA</span>
+      <div class="hero-conteudo">
+        <p class="ui-rotulo">Desde sempre, ao lado da esquina</p>
+        <h1>Barba, cabelo<br>e bigode —<br><em>na régua.</em></h1>
+        <p class="hero-sub">Corte, barba, freestyle, tinta e barboterapia. Agende pelo site e chegue sem fila de espera.</p>
+        <div class="hero-acoes">
+          <a class="btn btn-primario" href="#agendamento">Agendar horário</a>
+          <a class="btn btn-secundario" href="https://wa.me/5565999395652" target="_blank" rel="noopener">WhatsApp direto</a>
+        </div>
+        <ul class="hero-fatos" aria-label="Informações da barbearia">
+          <li><strong>Seg–Sáb</strong><span>08h às 19h</span></li>
+          <li><strong>Dom/fer.</strong><span>08h às 12h</span></li>
+          <li><strong>Fixo</strong><span>(65) 3646-4384</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Serviços -->
+    <section class="secao" id="servicos">
+      <div class="secao-head">
+        <h2>Serviços</h2>
+        <p class="secao-sub">Escolha o serviço e agende direto pelo site.</p>
+      </div>
+      <div class="grade-servicos" id="gradeServicos"></div>
+      <p class="nota"><span aria-hidden="true">*</span> Valores e durações ilustrativos — não estão no perfil oficial. <a href="https://wa.me/5565999395652" target="_blank" rel="noopener">Confirme pelo WhatsApp</a>.</p>
+    </section>
+
+    <!-- Agendamento -->
+    <section class="secao agendar" id="agendamento">
+      <div class="secao-head">
+        <h2>Agendamento</h2>
+        <p class="secao-sub">Três toques e o pedido chega pronto no WhatsApp da barbearia.</p>
+      </div>
+
+      <ol class="passos" id="passos" aria-hidden="true">
+        <li class="ativo" data-passo="1"><span>1</span> Serviço</li>
+        <li data-passo="2"><span>2</span> Dia</li>
+        <li data-passo="3"><span>3</span> Hora</li>
+        <li data-passo="4"><span>4</span> Seus dados</li>
+      </ol>
+
+      <form class="agenda" id="formAgenda" novalidate>
+        <div class="agenda-passo" data-passo="1">
+          <h3>Qual serviço?</h3>
+          <div class="chips" id="chipsServico" role="listbox" aria-label="Escolha o serviço"></div>
+        </div>
+
+        <div class="agenda-passo" data-passo="2" hidden>
+          <h3>Qual dia?</h3>
+          <div class="dias" id="listaDias" role="listbox" aria-label="Escolha o dia"></div>
+        </div>
+
+        <div class="agenda-passo" data-passo="3" hidden>
+          <h3>Qual horário?</h3>
+          <p class="agenda-ajuda" id="ajudaHorario"></p>
+          <div class="chips chips-horas" id="chipsHora" role="listbox" aria-label="Escolha o horário"></div>
+        </div>
+
+        <div class="agenda-passo" data-passo="4" hidden>
+          <h3>Seus dados</h3>
+          <div class="campos">
+            <label class="campo">
+              <span>Nome</span>
+              <input type="text" id="fNome" autocomplete="name" required maxlength="60" placeholder="Como te chamam na cadeira">
+            </label>
+            <label class="campo">
+              <span>Telefone <small>(para confirmarmos)</small></span>
+              <input type="tel" id="fTel" autocomplete="tel" inputmode="tel" maxlength="20" placeholder="(65) 9 0000-0000">
+            </label>
+            <label class="campo">
+              <span>Observação <small>(opcional)</small></span>
+              <input type="text" id="fObs" maxlength="120" placeholder="Ex.: máquina 1, neural no bigode…">
+            </label>
+          </div>
+          <p class="campo-erro" id="erroDados" hidden>Preencha nome e telefone para continuar.</p>
+        </div>
+
+        <div class="agenda-pes">
+          <button type="button" class="btn btn-secundario" id="btnVoltar" hidden>← Voltar</button>
+          <button type="button" class="btn btn-primario" id="btnAvancar" disabled>Continuar</button>
+          <a class="btn btn-primario btn-zap" id="btnWhats" hidden href="#" target="_blank" rel="noopener">Confirmar no WhatsApp →</a>
+        </div>
+        <p class="agenda-resumo" id="resumo" hidden></p>
+        <p class="nota nota-agenda">A agenda do site é uma pré-reserva: a vaga é confirmada por WhatsApp pela equipe. Não é pagamento.</p>
+      </form>
+    </section>
+
+    <!-- Pomadas -->
+    <section class="secao" id="pomadas">
+      <div class="secao-head">
+        <h2>Pomadas da casa</h2>
+        <p class="secao-sub">Saia da cadeira com a caixa certa. Pergunte a disponibilidade no balcão ou no WhatsApp.</p>
+      </div>
+      <div class="grade-pomadas">
+        <article class="card-pomada">
+          <span class="selo">Matte</span>
+          <h3>Pomada Matte</h3>
+          <p>Fixação forte, efeito seco. Para penteado que segura o dia inteiro.</p>
+        </article>
+        <article class="card-pomada">
+          <span class="selo">Brilho</span>
+          <h3>Pomada Brilho</h3>
+          <p>Acabamento clássico de pente, brilho de barbearia antigo.</p>
+        </article>
+        <article class="card-pomada">
+          <span class="selo">Barba</span>
+          <h3>Óleo de Barba</h3>
+          <p>Hidrata, alimenta e acalma a pele depois da navalha.</p>
+        </article>
+      </div>
+      <p class="nota">Produtos vendidos na loja — política de preço e estoque validados no balcão.</p>
+    </section>
+
+    <!-- Contato -->
+    <section class="secao" id="contato">
+      <div class="secao-head">
+        <h2>Onde estamos</h2>
+        <p class="secao-sub">Av. Brasil, 1184 · Morada da Serra · Cuiabá — MT</p>
+      </div>
+      <div class="grade-contato">
+        <div class="fato">
+          <h3>Endereço</h3>
+          <p class="endereco">
+            Avenida Brasil, 1184<br>
+            Morada da Serra<br>
+            Cuiabá — MT · CEP 78055-508
+          </p>
+          <a class="mapa-link" href="https://www.google.com/maps/search/?api=1&query=Avenida%20Brasil%2C%201184%2C%20Morada%20da%20Serra%2C%20Cuiab%C3%A1%20-%20MT%2C%2078055-508" target="_blank" rel="noopener">Ver no Google Maps ↗</a>
+        </div>
+        <div class="fato">
+          <h3>Horários</h3>
+          <table class="horarios">
+            <tr><td>Segunda a sábado</td><td>08h – 19h</td></tr>
+            <tr><td>Domingo e feriados</td><td>08h – 12h</td></tr>
+          </table>
+        </div>
+        <div class="fato">
+          <h3>Fale com a casa</h3>
+          <ul class="lista-contato">
+            <li><a href="https://wa.me/5565999395652" target="_blank" rel="noopener">WhatsApp (65) 99939-5652</a></li>
+            <li><a href="tel:+556536464384">Fixo (65) 3646-4384</a></li>
+            <li><a href="https://www.instagram.com/bredabarbeariaoficial/" target="_blank" rel="noopener">@bredabarbeariaoficial</a></li>
+          </ul>
+        </div>
+        <div class="fato">
+          <h3>Marque já sua cadeira</h3>
+          <a class="btn btn-primario" href="#agendamento">Agendar horário</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Rodapé -->
+  <footer class="rodape">
+    <div class="rodape-inner">
+      <span class="logo-texto">BREDA</span>
+      <p>Barba, cabelo e bigode.</p>
+      <p class="rodape-endereco">Av. Brasil, 1184 · Morada da Serra · Cuiabá — MT · CEP 78055-508</p>
+      <nav aria-label="Rodapé">
+        <a href="#servicos">Serviços</a>
+        <a href="#agendamento">Agendamento</a>
+        <a href="#pomadas">Pomadas</a>
+        <a href="#contato">Contato</a>
+        <a href="https://www.instagram.com/bredabarbeariaoficial/" target="_blank" rel="noopener">Instagram</a>
+      </nav>
+      <small>Site feito para a Breda Barbearia Oficial. Preços marcados com * são ilustrativos até validação.</small>
+    </div>
+  </footer>
+
+  <a class="zap-flutuante" id="zapFlutuante" href="https://wa.me/5565999395652" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+    <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.7 1-.1.2-.3.2-.5.1-.7-.3-1.3-.6-1.9-1.2-.5-.5-.9-1.1-1.2-1.7-.1-.3 0-.4.1-.5l.6-.7c.1-.2.2-.3.1-.5s-.7-1.7-.9-2.3c-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.7.7-1.1 1.6-1.1 2.5.1 1.1.5 2.1 1.2 3a12.6 12.6 0 0 0 5.1 4.4c.9.4 1.7.6 2.4.6.7 0 1.4-.3 1.9-.8.3-.4.5-.9.5-1.4-.1-.2-.2-.4-.5-.5Z"/></svg>
+  </a>
+
+  <script src="app.js"></script>
+</body>
+</html>
